@@ -3,6 +3,7 @@ package com.santos.RST.entity;
 
 import javax.persistence.*;
 import java.util.Calendar;
+import java.util.Date;
 
 @Entity
 @Table(name = "citas")
@@ -16,15 +17,16 @@ public class Citas {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "diadecita")
-    private Calendar diaDeCita;
+    private Date diaDeCita;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_PACIENTES", nullable = false, updatable = true)
     private Paciente paciente;
 
     public Citas() {
     }
 
-    public Citas(Integer id, Boolean citaRealizada, Calendar diaDeCita, Paciente paciente) {
+    public Citas(Integer id, Boolean citaRealizada, Date diaDeCita, Paciente paciente) {
         this.id = id;
         this.citaRealizada = citaRealizada;
         this.diaDeCita = diaDeCita;
@@ -47,11 +49,11 @@ public class Citas {
         this.citaRealizada = citaRealizada;
     }
 
-    public Calendar getDiaDeCita() {
+    public Date getDiaDeCita() {
         return diaDeCita;
     }
 
-    public void setDiaDeCita(Calendar diaDeCita) {
+    public void setDiaDeCita(Date diaDeCita) {
         this.diaDeCita = diaDeCita;
     }
 
@@ -62,4 +64,5 @@ public class Citas {
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
+
 }

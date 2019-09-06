@@ -1,4 +1,5 @@
 package com.santos.RST.enums;
 
-public enum Generp {
+public enum Genero {
+    MASCULINO,FEMENINO
 }

@@ -1,5 +1,7 @@
 package com.santos.RST.entity;
 
+import com.santos.RST.enums.Genero;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,20 +19,21 @@ public class Paciente {
     @Column(name = "amaterno")
     private String aMaterno;
     @Column(name = "edad")
-    private String edad;
+    private Integer edad;
     @Column(name = "numtelefono")
     private String numTelefono;
     @Column(name = "genero")
-    private String genero;
+    @Enumerated(EnumType.STRING)
+    private Genero genero;
     @Column(name = "diagnostico", length = 512)
     private String diagnostico;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "paciente")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "paciente")
     private List<Citas> citas;
 
     public Paciente() {
     }
 
-    public Paciente(Integer id, String nombre, String aPaterno, String aMaterno, String edad, String numTelefono, String genero, String diagnostico, List<Citas> citas) {
+    public Paciente(Integer id, String nombre, String aPaterno, String aMaterno, Integer edad, String numTelefono, Genero genero, String diagnostico, List<Citas> citas) {
         this.id = id;
         this.nombre = nombre;
         this.aPaterno = aPaterno;
@@ -74,11 +77,11 @@ public class Paciente {
         this.aMaterno = aMaterno;
     }
 
-    public String getEdad() {
+    public Integer getEdad() {
         return edad;
     }
 
-    public void setEdad(String edad) {
+    public void setEdad(int edad) {
         this.edad = edad;
     }
 
@@ -90,11 +93,11 @@ public class Paciente {
         this.numTelefono = numTelefono;
     }
 
-    public String getGenero() {
+    public Genero getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(Genero genero) {
         this.genero = genero;
     }
 
@@ -112,5 +115,20 @@ public class Paciente {
 
     public void setCitas(List<Citas> citas) {
         this.citas = citas;
+    }
+
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", aPaterno='" + aPaterno + '\'' +
+                ", aMaterno='" + aMaterno + '\'' +
+                ", edad=" + edad +
+                ", numTelefono='" + numTelefono + '\'' +
+                ", genero=" + genero +
+                ", diagnostico='" + diagnostico + '\'' +
+                ", citas=" + citas +
+                '}';
     }
 }

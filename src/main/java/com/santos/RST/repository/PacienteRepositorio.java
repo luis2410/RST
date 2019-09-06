@@ -1,4 +1,6 @@
 package com.santos.RST.repository;
 
-public class PacienteRepositorio {
-}
+import com.santos.RST.entity.Paciente;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PacienteRepositorio extends JpaRepository<Paciente,Integer> {}
