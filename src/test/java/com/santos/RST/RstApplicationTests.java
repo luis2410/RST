@@ -16,6 +16,7 @@ import javax.print.attribute.DocAttribute;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -31,32 +32,48 @@ public class RstApplicationTests {
 	@Transactional
 	public void contextLoads() {
 
+//		Optional<Paciente> po = pacienteRepositorio.findById(1);
+//		Paciente p = po.get();
+//
+//		Citas cita = new Citas();
+//		cita.setCitaRealizada(true);
+//		Calendar cal = Calendar.getInstance();
+//		cal.set(2120,4,5);
+//		cita.setDiaDeCita(cal.getTime());
+//		cita.setPaciente(p);
+//		citasRepositorio.save(cita);
 
-		List<Paciente> p = pacienteRepositorio.findAll();
-		System.out.println(p.get(0).toString());
-		System.out.println(p.get(0).getCitas().get(0).getId());
-		System.out.println(p.get(0).getCitas().get(0).getCitaRealizada());
-		System.out.println(p.get(0).getCitas().get(0).getDiaDeCita());
-		System.out.println(p.get(0).getCitas().get(0).getPaciente().getNombre());
+
+//		List<Paciente> p = pacienteRepositorio.findAll();
+
 		//
 //		System.out.println(pacienteRepositorio != null);
 //		Paciente p = new Paciente();
-//		p.setNombre("Luis");
+//		p.setNombre("Rafael");
 //		p.setaPaterno("Santos");
-//		p.setaMaterno("Navarro");
-//		p.setDiagnostico("Paciente con problemas mentales");
-//		p.setEdad(27);
+//		p.setaMaterno("Tovar");
+//		p.setDiagnostico("Problemas para dormir");
+//		p.setEdad(50);
 //		p.setGenero(Genero.MASCULINO);
-//		p.setNumTelefono("6691295551");
+//		p.setNumTelefono("6691123456");
+//
 //		Citas cita = new Citas();
 //		cita.setCitaRealizada(false);
 //		Calendar cal = Calendar.getInstance();
-//		cal.set(2000,5,25);
+//		cal.set(2020,5,2);
 //		cita.setDiaDeCita(cal.getTime());
 //		cita.setPaciente(p);
 //
+//		Citas cita2 = new Citas();
+//		cita2.setCitaRealizada(false);
+//
+//		cal.set(2019,2,9);
+//		cita2.setDiaDeCita(cal.getTime());
+//		cita2.setPaciente(p);
+//
 //		pacienteRepositorio.save(p);
 //		citasRepositorio.save(cita);
+//		citasRepositorio.save(cita2);
 
 
 

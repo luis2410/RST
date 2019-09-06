@@ -1,13 +1,16 @@
 package com.santos.RST.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
 @Entity
 @Table(name = "citas")
-public class Citas {
+public class Citas implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -20,7 +23,8 @@ public class Citas {
     private Date diaDeCita;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "FK_PACIENTES", nullable = false, updatable = true)
+    @JoinColumn(name = "FK_PACIENTES", nullable = false, updatable = false)
+    @JsonIgnore
     private Paciente paciente;
 
     public Citas() {

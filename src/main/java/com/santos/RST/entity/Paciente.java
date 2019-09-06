@@ -3,14 +3,15 @@ package com.santos.RST.entity;
 import com.santos.RST.enums.Genero;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "paciente")
-public class Paciente {
+public class Paciente implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Column(name = "nombre")
     private String nombre;
